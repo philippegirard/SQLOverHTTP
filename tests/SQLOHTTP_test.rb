@@ -15,4 +15,10 @@ class SQLOHTTPTest < TestHelper
     post "/"
     assert_equal "SQL request missing", last_response.body
   end
+
+  test "returns query result when JSON body is specified" do
+    post "/", {query: 'SELECT * FROM users'}.to_json, {format: 'json'}
+    assert_equal 200, last_response.status
+    assert_equal "[[\"1\", \"klasjdfklakldfsja\", \"phil\", \"fj34w90j2\"]]", last_response.body
+  end
 end
