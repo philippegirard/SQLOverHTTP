@@ -11,6 +11,9 @@ An HTTP server that acts as a gateway to execute SQL in a secure manner for the 
 
 The end goal is to to do it in a very secure manner using row level security.
 
+# Run
+Production : `ruby start.rb`
+Development : `rerun 'ruby start.rb'`
 
 # Test
 Run `rake test`. 
