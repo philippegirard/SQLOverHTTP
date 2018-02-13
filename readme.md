@@ -13,6 +13,7 @@ The end goal is to to do it in a very secure manner using row level security.
 
 # Run
 Production : `ruby start.rb`
+
 Development : `rerun 'ruby start.rb'`
 
 # Test
