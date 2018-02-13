@@ -1,24 +1,18 @@
-ENV['RACK_ENV'] = 'test'
-
-require 'rack/test'
-require 'test/unit'
+require 'test_helper'
 require 'SQLOHTTP'
 
-class SQLOHTTPTest < Test::Unit::TestCase
-  include Rack::Test::Methods
-
+class SQLOHTTPTest < TestHelper
   def app
     SQLOHTTP
   end
 
-  def test_returns_200_when_using_post
+  test "returns 200 when using post" do
     post "/"
     assert_equal 200, last_response.status
   end
 
-  def test_retures_SQL_missing_when_no_JSON_body_specified
+  test "returns SQL missing when not JSON body is specified" do
     post "/"
     assert_equal "SQL request missing", last_response.body
   end
 end
-
