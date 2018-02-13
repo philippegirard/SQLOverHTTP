@@ -10,3 +10,9 @@ Remove the necessity for a backend for mobile applications, enabling faster deve
 An HTTP server that acts as a gateway to execute SQL in a secure manner for the mobile clients.
 
 The end goal is to to do it in a very secure manner using row level security.
+
+
+# Test
+Run `rake test`. 
+
+The tests are in `/tests`
