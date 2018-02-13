@@ -1,5 +1,5 @@
 require 'sinatra'
-require './database'
+require 'database'
 require 'json'
 
 class SQLOHTTP < Sinatra::Base
@@ -12,6 +12,10 @@ class SQLOHTTP < Sinatra::Base
     @db = Database.new
   end
 
+  get '/' do
+    'HELLO WORLD'
+  end
+
   post '/' do
     return 'SQL request missing' unless request.body.size > 0
     payload = JSON.parse(request.body.read)
@@ -19,5 +23,3 @@ class SQLOHTTP < Sinatra::Base
     res.values.to_s
   end
 end
-
-SQLOHTTP.run!
