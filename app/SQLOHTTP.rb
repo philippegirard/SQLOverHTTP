@@ -1,6 +1,7 @@
+require 'activesupport_dep'
+require 'json'
 require 'sinatra'
 require 'database'
-require 'json'
 
 class SQLOHTTP < Sinatra::Base
   set :raise_errors, true
@@ -18,8 +19,13 @@ class SQLOHTTP < Sinatra::Base
 
   post '/' do
     return 'SQL request missing' unless request.body.size > 0
-    payload = JSON.parse(request.body.read)
-    res = @db.query(payload['query'])
+    res = @db.query(params[:query])
     res.values.to_s
+  end
+
+  private
+
+  def params
+    JSON.parse(request.body.read).with_indifferent_access
   end
 end

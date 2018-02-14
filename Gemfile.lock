@@ -1,12 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (5.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    concurrent-ruby (1.0.5)
     ffi (1.9.21)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     json (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    minitest (5.11.3)
     mustermann (1.0.1)
     pg (1.0.0)
     rack (2.0.4)
@@ -26,12 +35,16 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    thread_safe (0.3.6)
     tilt (2.0.8)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   json
   pg
   rack-test
